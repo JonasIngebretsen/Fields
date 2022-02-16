@@ -1,0 +1,80 @@
+/*
+* GRID TEST CLASS
+* @version: 3.1
+* @description: Lightweight Flex-Grid system
+* @author: Jonas B. Ingebretsen
+*/
+.grid-test {
+	[class*="xxs-"],
+	[class*="xs-"],
+	[class*="md-"],
+	[class*="lg-"],
+	[class="xxs"],
+	[class="xs"],
+	[class="md"],
+	[class="lg"] {
+		.inner {
+			padding: var(--gutter);
+			width: 100%;
+			font-size: 26px;
+			font-weight: 600;
+			border-radius: 12px;
+		}
+
+		&:nth-child(1) {
+			.inner {
+				background: rgba(#48c9b0, 0.35);
+			}
+		}
+		&:nth-child(2) {
+			.inner {
+				background: rgba(#daf7a6, 0.35);
+			}
+		}
+		&:nth-child(3) {
+			.inner {
+				background: rgba(#ffc300, 0.35);
+			}
+		}
+		&:nth-child(4) {
+			.inner {
+				background: rgba(#ff5733, 0.35);
+			}
+		}
+		&:nth-child(5) {
+			.inner {
+				background: rgba(#c70039, 0.35);
+			}
+		}
+		&:nth-child(6) {
+			.inner {
+				background: rgba(#2980b9, 0.35);
+			}
+		}
+		&:nth-child(8) {
+			.inner {
+				background: rgba(#9b59b6, 0.35);
+			}
+		}
+		&:nth-child(9) {
+			.inner {
+				background: rgba(#34495e, 0.35);
+			}
+		}
+		&:nth-child(10) {
+			.inner {
+				background: rgba(#f39c12, 0.35);
+			}
+		}
+		&:nth-child(11) {
+			.inner {
+				background: rgba(#f5cba7, 0.35);
+			}
+		}
+		&:nth-child(12) {
+			.inner {
+				background: rgba(#a9dfbf, 0.35);
+			}
+		}
+	}
+}

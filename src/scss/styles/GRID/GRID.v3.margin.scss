@@ -1,0 +1,54 @@
+/*
+* GRID 
+* @version: 3.1
+* @description: Lightweight Flex-Grid system
+* @author: Jonas B. Ingebretsen
+*/
+@each $name, $size in $sizes {
+	@media only screen and (min-width: #{$size}) {
+		@each $dir in $coord {
+			@for $k from 0 through $columns {
+				.#{$name}-margin-#{$dir}-#{$k},
+				[#{$name}-margin-#{$dir}-#{$k}] {
+					margin-#{$dir}: calc(var(--gutter) * #{$k}) !important
+				}
+				.#{$name}-margin-#{$k},
+				[#{$name}-margin-#{$k}] {
+					margin: calc(var(--gutter) * #{$k}) !important
+				}
+				.#{$name}-padding-#{$dir}-#{$k},
+				[#{$name}-padding-#{$dir}-#{$k}] {
+					padding-#{$dir}: calc(var(--gutter) * #{$k}) !important
+				}
+				.#{$name}-padding-#{$k},
+				[#{$name}-padding-#{$k}] {
+					padding: calc(var(--gutter) * #{$k}) !important
+				}
+			}
+		}
+	}
+}
+
+@for $k from 0 through $columns {
+	.margin-#{$k}, 
+	[margin-#{$k}]   { 
+		margin: calc(var(--gutter) * #{$k}) !important 
+	}
+	.padding-#{$k}, 
+	[padding-#{$k}]  { 
+		padding: calc(var(--gutter) * #{$k}) !important 
+	}
+}
+
+@each $dir in $coord {
+	@for $k from 0 through $columns {
+		.margin-#{$dir}-#{$k}, 
+		[margin-#{$dir}-#{$k}]   { 
+			margin-#{$dir}: calc(var(--gutter) * #{$k}) !important 
+		}
+		.padding-#{$dir}-#{$k}, 
+		[padding-#{$dir}-#{$k}]  { 
+			padding-#{$dir}: calc(var(--gutter) * #{$k}) !important 
+		}
+	}
+}

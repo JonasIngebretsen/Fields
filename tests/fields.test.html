@@ -3,15 +3,107 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>
-		Fields - Inputs
-	</title>
-	<link rel="stylesheet" href="../dist/fields.dist.css">
-	<script src="../dist/fields.dist.js"></script>
-</head>
-<body>
+	<title>Fields - Inputs</title>
 
-	<input type="text" name="" id="" class="" placeholder="" label="Text input" icon="">
-	
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../dist/fields.dist.css">
+
+	<script src="../dist/fields.dist.js"></script>
+
+</head>
+
+<body class="row">
+	<div class="container xxs-11 margin-top-2 margin-bottom-2">
+		
+		<div class="row margin-bottom-2">
+			<h1 class="xxs-12">Fields - Input tests</h1>
+			<p class="xxs-12">
+				A overview of all available fields.
+			</p>
+		</div>
+
+		<div class="row">
+
+			<div class="xxs-12 margin-bottom-2">
+				<input type="text" name="data[field-1]" id="text-field" placeholder="Text field" label="Text input" icon="">
+			</div>
+
+			<div class="xxs-12 margin-bottom-2">		
+				<input type="text" name="data[field-2]" id="search-field" placeholder="Search anything!" label="Text input" icon="far fa-search">
+			</div>
+
+			<div class="xxs-12 margin-bottom-2">
+				<input type="checkbox" name="data[field-3][]" id="checkbox-field-1" label="Checkbox 1">
+				<input type="checkbox" name="data[field-3][]" id="checkbox-field-2" label="Checkbox 2">
+				<input type="checkbox" name="data[field-3][]" id="checkbox-field-3" label="Checkbox 3">
+			</div>
+
+			<div class="xxs-12 margin-bottom-2">
+				<input type="radio" name="data[field-4][]" id="radio-field-1" label="Free cake">
+				<input type="radio" name="data[field-4][]" id="radio-field-2" label="No cake">
+			</div>
+
+			<div class="xxs-12 margin-bottom-2">
+				<input type="toggle" name="data[field-5][]" id="toggle-field-1" label="Enabled">
+				<input type="toggle" name="data[field-5][]" id="toggle-field-2" label="Disabled">
+			</div>
+
+			<div class="xxs-12 margin-bottom-2">
+				<select name="data[field-6]" id="select-field-1" label="Single select">
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+			</div>
+
+			<div class="xxs-12 margin-bottom-2">
+				<select multiple name="data[field-7][]" id="select-field-2" label="Multi-select">
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+					<option value="4">Four</option>
+					<option value="5">Five</option>
+					<option value="6">Six</option>
+					<option value="7">Seven</option>
+					<option value="8">Eight</option>
+					<option value="9">Nine</option>
+					<option value="10">Ten</option>
+				</select>
+			</div>
+
+			<div class="xxs-12 margin-bottom-2">
+				<select search name="data[field-8]" id="select-field-3" label="Searchable select">
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+					<option value="4">Four</option>
+					<option value="5">Five</option>
+					<option value="6">Six</option>
+					<option value="7">Seven</option>
+					<option value="8">Eight</option>
+					<option value="9">Nine</option>
+					<option value="10">Ten</option>
+				</select>
+			</div>
+			
+			<div class="xxs-12 margin-bottom-2">
+				<select multiple search name="data[field-9][]" id="select-field-4" label="Searchable Multi-select">
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+					<option value="4">Four</option>
+					<option value="5">Five</option>
+					<option value="6">Six</option>
+					<option value="7">Seven</option>
+					<option value="8">Eight</option>
+					<option value="9">Nine</option>
+					<option value="10">Ten</option>
+				</select>
+			</div>
+
+		</div>
+
+	</div>
 </body>
+
 </html>
