@@ -25,6 +25,13 @@ import { ComponentTextarea } from './components/Textarea.component.js'
  */
 class Fields {
 
+	/**
+	 * Constructor
+	 *
+	 * Attempts to run initialization
+	 * 
+	 * @Added v1.0.0
+	 */
 	constructor( args ) {
 		this.Initialize( args )
 	}
@@ -34,13 +41,14 @@ class Fields {
 	 * Initialize system
 	 *
 	 * Can only run once.
+	 * 
 	 * @Added v1.0.0
 	 */
 	Initialize( args ) {
 
-		if ( ! window.Fields ) { window.Fields = this }
-
 		if ( this.config('initialized') ) { return false }
+
+		if ( ! window.Fields ) { window.Fields = this }
 
 		// 1. Define arguments & options
 		this.setConfig( args )
@@ -48,24 +56,23 @@ class Fields {
 		// 2. Load helper classes
 		this.loadHelpers()
 
-		// 2. Load all components
+		// 3. Load system classes
+		this.loadClasses()
+
+		// 4. Load all sub-components
 		this.loadComponents()
 
-		// 3. Initialize each component
+		// 5. Initialize each component
 		this.runComponents()
-
-		console.log('Fields: ' + 'initialized')
-
-		return true
 	}
 
 
 	/**
 	 * Set config arguments
+	 * 
 	 * @Added v1.0.0
 	 */
 	setConfig( args = {} ) {
-
 		window.Fields.configData = args
 		window.Fields.configData.version = '1.0.0'
 		window.Fields.configData.author = 'Jonas B. Ingebretsen'
@@ -76,6 +83,7 @@ class Fields {
 
 	/**
 	 * Fetches arguments & options
+	 * 
 	 * @Added v1.0.0
 	 */
 	config( key = null ) {
@@ -86,16 +94,27 @@ class Fields {
 
 	/**
 	 * Load all helper classes
+	 * 
 	 * @Added v1.0.0
 	 */
 	loadHelpers() {
 		this.Helpers = {}
+	}
+
+
+	/**
+	 * Load all classes
+	 * 
+	 * @Added v1.0.0
+	 */
+	loadClasses() {
 
 	}
 
 
 	/**
 	 * Load all components
+	 * 
 	 * @Added v1.0.0
 	 */
 	loadComponents() {
@@ -120,12 +139,13 @@ class Fields {
 
 	/**
 	 * Runs / Executes all components
+	 * 
 	 * @Added v1.0.0
 	 */
 	runComponents() {
 
 		this.Components.Text.initialize()
-		
+
 	}
 
 
