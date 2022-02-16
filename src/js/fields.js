@@ -52,7 +52,8 @@ class Fields {
 		this.loadComponents()
 
 		// 3. Initialize each component
-		
+		this.runComponents()
+
 		console.log('Fields: ' + 'initialized')
 
 		return true
@@ -88,6 +89,7 @@ class Fields {
 	 * @Added v1.0.0
 	 */
 	loadHelpers() {
+		this.Helpers = {}
 
 	}
 
@@ -114,6 +116,16 @@ class Fields {
 		this.Components.Tel = new ComponentTel()
 		this.Components.Range = new ComponentRange()
 		this.Components.Textarea = new ComponentTextarea()
+	}
+
+	/**
+	 * Runs / Executes all components
+	 * @Added v1.0.0
+	 */
+	runComponents() {
+
+		this.Components.Text.initialize()
+		
 	}
 
 
