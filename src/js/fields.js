@@ -21,6 +21,9 @@ import { ComponentTextarea } from './components/Textarea.component.js'
 
 /**
  * Main Class for Fields
+ *
+ * Name might change
+ * 
  * @Added v1.0.0
  */
 class Fields {
