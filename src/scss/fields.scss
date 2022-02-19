@@ -3,7 +3,29 @@
 	Author: Jonas B. Ingebretsen
 */
 
+
 // // // // // // // // // // // // 
-// Dependencies
+// Mixins and config
+@import "global/config";
+@import "global/mixins";
+@import "global/Field";
+
+
+// // // // // // // // // // // // 
+// Components
+@import "components/Button.component";
+@import "components/Checkbox.component";
+@import "components/Color.component";
+@import "components/Date.component";
+@import "components/Email.component";
+@import "components/File.component";
+@import "components/Number.component";
+@import "components/Password.component";
+@import "components/Radio.component";
+@import "components/Range.component";
+@import "components/Search.component";
+@import "components/Select.component";
+@import "components/Tel.component";
 @import "components/Text.component";
-// @import "components/Text.component";
+@import "components/Textarea.component";
+@import "components/URL.component";
