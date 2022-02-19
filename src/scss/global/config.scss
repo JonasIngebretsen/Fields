@@ -1,5 +1,21 @@
+/**
+ * Field: All
+ */
 :root {
 
-
+	/**
+	 * Field: Text
+	 */
+	--field_background 	: #fff;
+	--field_color 		: #000;
+	--field_font-size	: 18px;
+	--field_line-height	: 18px;
+	--field_icon-size	: 18px;
+	--field_radius 		: 0;
+	--field_border 		: 2px solid #333;
+	--field_focus 		: 2px solid red;
+	--field_height 		: 20px;
+	--field_width 		: 100%;
+	--field_shadow 		: 6px 10px 24px rgba( 0, 0, 0, 0.08 );
 
 }

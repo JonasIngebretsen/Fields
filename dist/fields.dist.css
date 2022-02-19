@@ -1,5 +1,5 @@
 /*!
 	Name: 	Fields
 	Author: Jonas B. Ingebretsen
-*/
+*/:root{--field_background:#fff;--field_color:#000;--field_font-size:18px;--field_line-height:18px;--field_icon-size:18px;--field_radius:0;--field_border:2px solid #333;--field_focus:2px solid red;--field_height:20px;--field_width:100%;--field_shadow:6px 10px 24px rgba(0,0,0,0.08)}[field-container][type=text]{--text_background:#fff;--text_color:#000;--text_font-size:18px;--text_line-height:18px;--text_icon-size:18px;--text_radius:0;--text_border:2px solid #333;--text_focus:2px solid red;--text_height:20px;--text_width:100%;--text_shadow:6px 10px 24px rgba(0,0,0,0.08)}
 /*# sourceMappingURL=fields.dist.css.map */

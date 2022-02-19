@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/scss/fields.scss"],"names":[],"mappings":"AAAA;;;CAAA","file":"fields.dist.css"}
+{"version":3,"sources":["../src/scss/fields.scss","../src/scss/global/config.scss","fields.dist.css","../src/scss/components/Text.component.scss"],"names":[],"mappings":"AAAA;;;CAAA,CCGA,MAKC,uBAAA,CACA,kBAAA,CACA,sBAAA,CACA,wBAAA,CACA,sBAAA,CACA,gBAAA,CACA,6BAAA,CACA,2BAAA,CACA,mBAAA,CACA,kBAAA,CACA,6CCID,CCnBA,6BACI,sBAAA,CACA,iBAAA,CACA,qBAAA,CACA,uBAAA,CACA,qBAAA,CACA,eAAA,CACA,4BAAA,CACA,0BAAA,CACA,kBAAA,CACA,iBAAA,CACA,4CDuGJ","file":"fields.dist.css"}

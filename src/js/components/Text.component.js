@@ -26,11 +26,8 @@ export class ComponentText extends Field {
 	 * @Added v1.0.0
 	 */
 	initialize() {
-
 		this.transform()
-
 		this.observer( true )
-
 	}
 
 

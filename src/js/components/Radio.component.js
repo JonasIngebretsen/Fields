@@ -1,27 +1,60 @@
+import { Field } from '../classes/Field.class.js'
+
 /**
  * Component class for: Radio
  */
-export class ComponentRadio {
+export class ComponentRadio extends Field {
 
 	
 	/**
 	 * Constructor
 	 * @Added v1.0.0
 	 */
-	constructor() {}
+	constructor() {
+		super({
+			'type' 		: 'radio',
+			'transform' : true,
+			'bind' 		: true,
+			'listen' 	: true,
+		})
+	}
 	
 
 	/**
 	 * Initialize this component
+	 * 
 	 * @Added v1.0.0
 	 */
 	initialize() {
+		this.transform()
+		this.observer( true )
+	}
 
+
+	/**
+	 * Transform this type of field
+	 * 
+	 * @Added v1.0.0
+	 */
+	transform() {
+		document.addEventListener('DOMContentLoaded', (e) => {
+			let query = '[type="'+ this.config.type +'"]'
+			let nodes = document.querySelectorAll( query )
+
+			for ( let i = 0; i < nodes.length; i++ ) {
+				let node = nodes[i]
+
+				super.wrap( node )
+				super.label( node )
+				this.template( node )
+			}
+		})
 	}
 
 
 	/**
 	 * Observe for this type of field
+	 * 
 	 * @Added v1.0.0
 	 */
 	observer( start = true ) {
@@ -31,15 +64,17 @@ export class ComponentRadio {
 
 	/**
 	 * Create a template for this type
+	 * 
 	 * @Added v1.0.0
 	 */
-	template() {
-
+	template( node ) {
+		
 	}
 
 
 	/**
 	 * Listeners for this type
+	 * 
 	 * @Added v1.0.0
 	 */
 	listeners() {

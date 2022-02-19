@@ -34,6 +34,7 @@ export class Field {
 		wrapper.setAttribute('id', node.id)
 
 		container.setAttribute('field-container', UID)
+		container.setAttribute('type', node.type)
 	}
 
 	

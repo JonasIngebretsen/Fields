@@ -140,15 +140,16 @@ class Fields {
 		this.Components.Textarea = new ComponentTextarea()
 	}
 
+
 	/**
 	 * Runs / Executes all components
 	 * 
 	 * @Added v1.0.0
 	 */
 	runComponents() {
-
-		this.Components.Text.initialize()
-
+		for ( const Field in this.Components ) {
+			this.Components[ Field ].initialize()
+		}
 	}
 
 
