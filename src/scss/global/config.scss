@@ -3,19 +3,31 @@
  */
 :root {
 
+
+	/**
+	 * Label
+	 */
+	--label_color 		: #fff;
+	--label_font-size	: 14px;
+	--label_font-weight	: 600;
+	--label_line-height	: 20px;
+
 	/**
 	 * Field: Text
 	 */
 	--field_background 	: #fff;
 	--field_color 		: #000;
 	--field_font-size	: 18px;
+	--field_font-weight	: 400;
 	--field_line-height	: 18px;
 	--field_icon-size	: 18px;
-	--field_radius 		: 0;
+	--field_radius 		: 12px;
 	--field_border 		: 2px solid #333;
-	--field_focus 		: 2px solid red;
-	--field_height 		: 20px;
+	--field_outline 	: 0px solid red;
+	--field_height 		: 50px;
 	--field_width 		: 100%;
+	--field_padding 	: 10px 15px;
+	--field_margin 		: 0px 0px;
 	--field_shadow 		: 6px 10px 24px rgba( 0, 0, 0, 0.08 );
 
 }

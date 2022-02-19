@@ -13,6 +13,8 @@
     --text_height       : 20px;
     --text_width        : 100%;
     --text_shadow       : 6px 10px 24px rgba( 0, 0, 0, 0.08 );
+    --text_padding       : 10px 10px;
+    --text_margin       : 10px 10px;
 }
 
 
@@ -21,4 +23,8 @@
  */
 [field-container][type="text"] {
 
+    input {
+     
+
+    }
 }

@@ -147,9 +147,11 @@ class Fields {
 	 * @Added v1.0.0
 	 */
 	runComponents() {
-		for ( const Field in this.Components ) {
-			this.Components[ Field ].initialize()
-		}
+		document.addEventListener('DOMContentLoaded', (e) => {
+			for ( const Field in this.Components ) {
+				this.Components[ Field ].initialize()
+			}
+		})
 	}
 
 

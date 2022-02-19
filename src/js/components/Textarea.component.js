@@ -37,18 +37,16 @@ export class ComponentTextarea extends Field {
 	 * @Added v1.0.0
 	 */
 	transform() {
-		document.addEventListener('DOMContentLoaded', (e) => {
-			let query = this.config.type
-			let nodes = document.querySelectorAll( query )
+		let query = this.config.type
+		let nodes = document.querySelectorAll( query )
 
-			for ( let i = 0; i < nodes.length; i++ ) {
-				let node = nodes[i]
+		for ( let i = 0; i < nodes.length; i++ ) {
+			let node = nodes[i]
 
-				super.wrap( node )
-				super.label( node )
-				this.template( node )
-			}
-		})
+			super.wrap( node )
+			super.label( node )
+			this.template( node )
+		}
 	}
 
 
