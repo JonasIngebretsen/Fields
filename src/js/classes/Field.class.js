@@ -79,5 +79,15 @@ export class Field {
 		return node.getAttribute('field') || node.getAttribute('field-wrap')
 	}
 
+	
+	/**
+	 * Observe for this type of field
+	 * 
+	 * @Added v1.0.0
+	 */
+	observer( start = true ) {
+
+	}
+
 
 }
