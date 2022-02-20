@@ -146,7 +146,7 @@ class Fields {
 	 * 
 	 * @Added v1.0.0
 	 */
-	runComponents() {
+	async runComponents() {
 		document.addEventListener('DOMContentLoaded', (e) => {
 			for ( const Field in this.Components ) {
 				this.Components[ Field ].initialize()

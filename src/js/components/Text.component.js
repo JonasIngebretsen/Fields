@@ -45,6 +45,7 @@ export class ComponentText extends Field {
 
 			super.wrap( node )
 			super.label( node )
+			super.icon( node )
 			this.template( node )
 		}
 	}

@@ -53,6 +53,24 @@ export class Field {
 
 
 	/**
+	 * Create a icon for field
+	 * 
+	 * @Added v1.0.0
+	 */
+	icon( node ) {
+		let iconName = node.getAttribute('icon')
+		let iconAlign = node.getAttribute('icon-align') == 'left' ? 'left' : 'right'
+		if ( ! iconName ) { return false }
+		iconName = iconName.trim().toLowerCase()
+		let icon = document.createElement('i')
+		icon.innerText = iconName
+		icon.setAttribute('field-icon', node.getAttribute('field') )
+		icon.setAttribute('align', iconAlign )
+		node.parentNode.prepend( icon )
+	}
+
+
+	/**
 	 * Generate ID from node attributes
 	 *
 	 * @Added v1.0.0
