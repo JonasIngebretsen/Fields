@@ -1,0 +1,24 @@
+@import "styles/reset.scss";
+@import "styles/GRID/GRID.v3.config.scss";
+@import "styles/GRID/GRID.v3.core.scss";
+@import "styles/GRID/GRID.v3.margin.scss";
+@import "styles/GRID/GRID.v3.test.scss";
+
+body {
+	min-height: 100vh;
+	overflow-x: hidden;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	background: rgb(20,34,46);
+	background: linear-gradient(132deg, rgba(20,34,46,1) 0vh, rgba(23,48,69,1) 100vh);
+}
+
+h1 {
+	font-size:40px;
+	font-weight: 300;
+}
+
+p {
+	font-size:18px;
+	font-weight: 300;
+}
