@@ -46,7 +46,7 @@ export class Field {
 	label( node ) {
 		let label = document.createElement('label')
 		label.innerText = node.getAttribute('label')
-		label.setAttribute('label', node.getAttribute('field') )
+		label.setAttribute('field-label', node.getAttribute('field') )
 		label.setAttribute('for', node.id || '' )
 		node.parentNode.parentNode.prepend( label )
 	}
@@ -104,9 +104,155 @@ export class Field {
 	 * 
 	 * @Added v1.0.0
 	 */
-	observer( start = true ) {
+	async observer( start = true, type = null ) {
+		if ( ! type ) { return null }
+
+		// Define observe list if it does not exist
+		if ( ! window.Fields.observeList ) { 
+			window.Fields.observeList = {}
+		}
+
+		if ( ! window.Fields.observeListeners ) { 
+			window.Fields.observeListeners = {}
+		}
+
+		// If start is false: Stop & bail
+		if ( ! start ) { 
+			window.Fields.observeList[ type ].remove()
+			window.Fields.observeListeners[ type ].remove()
+			return true
+		}
+
+		// Add to list of node-types to be observed
+		window.Fields.observeList[ type ] = type
+
+		// window.Fields.observeList[ type ] = document.addEventListener('change', (e) => {
+		// 	console.log(e.target)
+		// 	if ( e.target.hasAttribute('field-container') || e.target.hasAttribute('field-wrap') || e.target.hasAttribute('field') ) {
+		// 		this.update( e.target )
+		// 	}
+		// }, false)
+
+		const callback = ( mutationsList, observer ) => {
+			for( const mutation of mutationsList ) {
+				if ( mutation.target.hasAttribute('field-container') || mutation.target.hasAttribute('field-wrap') || mutation.target.hasAttribute('field') ) {
+					this.update( mutation.target )
+				}
+			}
+		}
+
+		// Create observe instance if it does not exist
+		if ( ! window.Fields.observer  ) {
+			window.Fields.observer = new MutationObserver( callback )
+		}
+
+		// Start observing
+		this.observe()
 
 	}
+
+
+	/**
+	 * Start observing
+	 * 
+	 * @Added v1.0.0
+	 */
+	observe( start = true ) {
+		if ( ! window.Fields.observer  ) { 
+			return null
+		}
+
+		if ( ! start ) {
+			return window.Fields.observer.disconnect()
+		}
+
+		window.Fields.observer.observe(document.body, { 
+			attributes: true,
+			characterData: true,
+			childList: true,
+			subtree: true,
+			attributeOldValue: true,
+			characterDataOldValue: true
+		})
+	}
+
+
+	/**
+	 * Observe for this type of field
+	 * 
+	 * @Added v1.0.0
+	 */
+	async update( field ) {
+
+		await this.observe( false )
+
+		// let siblings = document.querySelectorAll('[field][name="'+ field.name +'"]:not([field="'+ field.getAttribute('field') +'"])')
+		// for ( let i = 0; i < siblings.length; i++ ) {
+		// 	this.update( siblings[i] )
+		// }
+		
+		const UID = field.getAttribute('field-container') || field.getAttribute('field-wrap') || field.getAttribute('field')
+		let fieldContainer = field.hasAttribute('field-container') ? field : field.closest('[field-container]')
+		let fieldWrap = fieldContainer.querySelector('[field-wrap]')
+		let fieldIcon = fieldContainer.querySelector('[field-icon]')
+		let fieldLabel = fieldContainer.querySelector('[field-label]')
+
+		let innerSiblings = document.querySelectorAll('[field-wrap="'+ UID +'"], [field="'+ UID +'"]')
+		let attributes = []
+
+		// Get new attributes
+		for ( let i = 0; i < field.attributes.length; i++ ) {
+			let attr = field.attributes[i]
+			if ( 
+				attr.name == 'field-container' || 
+				attr.name == 'field-wrap' || 
+				attr.name == 'field' || 
+				attr.name == 'id' || 
+				attr.name == 'name' || 
+				attr.name == 'for' || 
+				attr.name == 'type' || 
+				attr.name == 'style' 
+			) { continue }
+
+			attributes[ attr.name ] = await attr.nodeValue;
+		}
+
+		// Sync all attributes
+		for ( let i = 0; i < innerSiblings.length; i++ ) {
+			if ( innerSiblings[i] == field ) { continue }
+			
+			for( const key in attributes ) {
+				if( innerSiblings[i].getAttribute(key) == attributes[ key ] ) { continue }
+				innerSiblings[i].setAttribute( key, attributes[ key ] )
+
+				console.log( attributes[ key ])
+			}
+		}
+		
+		// Update icon from attributes
+		if ( attributes['icon'] && fieldIcon ) {
+			if ( fieldIcon.innerText !== attributes['icon'] ) {
+				fieldIcon.innerHTML = attributes['icon'].trim().toLowerCase()
+			}
+
+			if ( attributes['icon-align'] && fieldIcon.getAttribute('align') !== attributes['icon-align'] ) {
+				fieldIcon.setAttribute('align', attributes['icon-align'].trim().toLowerCase() )
+			}
+		}
+
+		// Update Label from attributes
+		if ( attributes['label'] && fieldLabel ) {
+			if ( fieldLabel.innerText !== attributes['label'] ) {
+				fieldLabel.innerHTML = attributes['label']
+			}
+		}
+
+		setTimeout((e) => {
+			this.observe( true )
+		}, 1)
+
+	}
+
 
 
 }

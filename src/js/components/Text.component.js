@@ -57,7 +57,7 @@ export class ComponentText extends Field {
 	 * @Added v1.0.0
 	 */
 	observer( start = true ) {
-
+		super.observer( true, this.config.type )
 	}
 
 
