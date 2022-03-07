@@ -3,11 +3,14 @@ import combineSelectors from 'postcss-combine-duplicated-selectors';
 import combineMediaQueries from 'postcss-combine-media-query';
 import compress from 'vite-plugin-compression';
 import imageMin from 'vite-plugin-imagemin';
+import ViteFonts from 'vite-plugin-fonts'
 
 const path = require('path')
 const isProd = process.env.NODE_ENV === 'production';
 
 export default {
+	publicDir : 'public',
+	assetsInclude: ['**/*.otf'],
 	css: {
 		postcss: {
 			plugins: [
@@ -54,16 +57,21 @@ export default {
 		compress({
 			algorithm: 'brotliCompress',
 		}),
+		ViteFonts({
+			google: {
+				families: ['Material Icons']
+			},
+		}),
 	],
 
 	server: {
-		open: true,
+		// open: true,
 		// proxy: {
-		// 	"/base": {
-		// 		target: "http://localhost:19000",
-		// 		changeOrigin: true,
-		// 		rewrite: (path) => path.replace(/^\/base/, ""),
-		// 	},
+			// "/base": {
+			// 	target: "http://localhost:19000",
+			// 	// changeOrigin: true,
+			// 	rewrite: (path) => path.replace(/^\/base/, ""),
+			// },
 		// },
 	},
 };
