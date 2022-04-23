@@ -193,6 +193,12 @@ export class Field {
 		
 		const UID = field.getAttribute('field-container') || field.getAttribute('field-wrap') || field.getAttribute('field')
 		let fieldContainer = field.hasAttribute('field-container') ? field : field.closest('[field-container]')
+
+		if( ! fieldContainer ) {
+			// Force update of input to field.
+			return false
+		}
+
 		let fieldWrap = fieldContainer.querySelector('[field-wrap]')
 		let fieldIcon = fieldContainer.querySelector('[field-icon]')
 		let fieldLabel = fieldContainer.querySelector('[field-label]')
